@@ -1,0 +1,24 @@
+<h2>結果発表！</h2>
+<p>あなたのスコア: <%= @score %> / <%= @questions.size %> 問正解！</p>
+
+<% @results.each_with_index do |res, i| %>
+  <div style="margin-bottom: 1em;">
+    <p><strong>Q<%= i + 1 %>: <%= res[:question].content %></strong></p>
+    <p>あなたの回答: 
+      <% selected = res[:question].choices.find { |c| c.id.to_s == res[:selected_choice_id] } %>
+      <%= selected ? selected.content : "未回答" %>
+    </p>
+    <p>正解: 
+      <% correct_choice = res[:question].choices.find { |c| c.id == res[:question].correct_choice_id } %>
+      <%= correct_choice.content %>
+    </p>
+    <% if res[:correct] %>
+  <p style="color: lime; font-size: 1.5em; font-weight: bold; text-shadow: 0 0 5px lime;">正解！</p>
+<% else %>
+  <p style="color: red; font-size: 1.5em; font-weight: bold; text-shadow: 0 0 5px crimson;">不正解でした</p>
+<% end %>
+  </div>
+<% end %>
+
+<%= link_to "もう一度挑戦", solve_quiz_set_path(@quiz_set) ,class: "neon-button"%> |
+<%= link_to "クイズ一覧に戻る", solve_list_path ,class: "neon-button"%>

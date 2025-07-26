@@ -1,0 +1,13 @@
+<h1>クイズを選んで解こう！</h1>
+
+<% @quiz_sets.each do |quiz_set| %>
+  <div class="quiz-item" style="margin-bottom: 1.5em;">
+    <h3><%= quiz_set.title %></h3>
+    <%= link_to "このクイズに挑戦！", solve_quiz_set_path(quiz_set), class: "neon-button challenge-btn" %>
+  </div>
+<% end %>
+
+<div class="back-button" style="margin-top: 2em;">
+  <%= link_to "トップに戻る", root_path, class: "neon-button back-btn" %>
+</div>
+

@@ -1,0 +1,237 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at center, midnightblue, black);
+  background-attachment: fixed;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+h1 {
+  margin-top: 2em;
+ font-size: 3.0em;
+  color: magenta;
+  font-family: "Bitcount Prop Double", system-ui;
+  text-shadow:
+    0 0 5px magenta,
+    0 0 10px violet,
+    0 0 20px purple;
+}
+
+/* ボタン共通デザイン */
+.neon-button {
+  padding: 0.8em 2em;
+  margin: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: cyan;
+  background-color: transparent;
+  border: 2px solid cyan;
+  border-radius: 12px;
+  box-shadow:
+    0 0 5px cyan,
+    0 0 10px blue,
+    0 0 20px darkviolet;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.neon-button:hover {
+  background-color: darkcyan;
+  color: black;
+  box-shadow:
+    0 0 10px white,
+    0 0 20px cyan,
+    0 0 30px blue;
+  transform: scale(1.05);
+}
+
+/* マイページ用 */
+.mypage-btn {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 0.9em;
+  padding: 0.4em 1em;
+  color: hotpink;
+  background-color: transparent;
+  border: 2px solid hotpink;
+  border-radius: 8px;
+  box-shadow:
+    0 0 5px hotpink,
+    0 0 10px deeppink;
+}
+
+.mypage-btn:hover {
+  background-color: hotpink;
+  color: black;
+  box-shadow:
+    0 0 10px deeppink,
+    0 0 20px hotpink;
+}
+
+/* 中央のボタンレイアウト */
+.center-buttons {
+  margin-top: 5em;
+  display: flex;
+  gap: 3em;
+}
+
+/* 星アニメ背景 */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent url("https://sozaino.site/wp-content/uploads/2021/11/gameneon03.jpg") repeat;
+  /*animation: starScroll 80s linear infinite;*/
+  background-attachment: fixed;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+@keyframes starScroll {
+  from { background-position: 0 0; }
+  to { background-position: 3000px 3000px; }
+}
+
+/* テキスト強調 */
+.neon-text-glow {
+  color: cyan;
+  text-shadow:
+    0 0 5px cyan,
+    0 0 10px deepskyblue,
+    0 0 20px blue;
+}
+
+/* 植物の成長アニメーション */
+/*
+  .plant-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .plant-description {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #666;
+  }
+*/
+.plant-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+  color: lime;
+  text-align: center;
+  text-shadow:
+    0 0 5px lime,
+    0 0 10px limegreen,
+    0 0 20px greenyellow,
+    0 0 30px lime;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  animation: glow-pulse 2s infinite alternate;
+}
+
+.plant-description {
+  font-size: 1em;
+  color: aqua;
+  text-align: center;
+  text-shadow:
+    0 0 4px cyan,
+    0 0 8px deepskyblue,
+    0 0 16px blue;
+  margin-bottom: 20px;
+}
+  .plant-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .plant-stage {
+    background: transparent;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .plant-image {
+    max-height: 350px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+.back-btn {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 0.9em;
+  padding: 0.4em 1em;
+  background-color: transparent;
+  border-color: violet;
+  color: violet;
+  box-shadow:
+    0 0 5px violet,
+    0 0 10px purple;
+}
+
+.back-btn:hover {
+  background-color: violet;
+  color: black;
+  box-shadow:
+    0 0 10px purple,
+    0 0 20px violet;
+}
+/*
+.plant-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+*/
+.quiz-content-left {
+  width: 90%;
+  max-width: 800px;
+  text-align: left;
+}
+@keyframes glow-pulse {
+  from {
+    text-shadow:
+      0 0 5px lime,
+      0 0 10px limegreen,
+      0 0 20px greenyellow;
+  }
+  to {
+    text-shadow:
+      0 0 10px lime,
+      0 0 20px limegreen,
+      0 0 30px greenyellow;
+  }
+}

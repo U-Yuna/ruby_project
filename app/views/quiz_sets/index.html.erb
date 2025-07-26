@@ -1,0 +1,19 @@
+<h1>クイズセット一覧</h1>
+
+<div style="margin-bottom: 1.5em;">
+  <%= link_to "新しいクイズセットを作成", new_quiz_set_path, class: "neon-button new-btn" %>
+</div>
+
+<ul>
+  <% @quiz_sets.each do |quiz_set| %>
+    <li style="margin-bottom: 1em;">
+      <%= link_to quiz_set.title, quiz_set_path(quiz_set), class: "neon-button quiz-title-btn" %>
+      （作成日時: <%= quiz_set.created_at.strftime("%Y/%m/%d") %>）
+      <%= button_to "削除", quiz_set_path(quiz_set), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "neon-button delete-btn" %>
+    </li>
+  <% end %>
+</ul>
+
+<div style="margin-top: 2em;">
+  <%= link_to "トップに戻る", root_path, class: "neon-button back-btn" %>
+</div>

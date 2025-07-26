@@ -1,0 +1,13 @@
+<h1>クイズアプリ</h1>
+
+<% if current_user %>
+
+  <%= link_to "マイページ", user_path(current_user), class: "neon-button mypage-btn" %>
+<% end %>
+
+
+<div class="center-buttons">
+  <%= link_to "クイズを投稿する", quiz_sets_path, class: "neon-button" %>
+  <%= link_to "クイズを解く", solve_list_path, class: "neon-button" %>
+</div>
+

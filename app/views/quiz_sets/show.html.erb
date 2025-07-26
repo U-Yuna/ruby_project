@@ -1,0 +1,27 @@
+<h1><%= @quiz_set.title %></h1>
+
+<div class="quiz-content-left">
+
+<%= link_to "新しい問題を追加", new_quiz_set_question_path(@quiz_set),class: "neon-button" %>  
+<%= link_to "クイズセット一覧に戻る", quiz_sets_path ,class: "neon-button"%>
+
+<% @questions.each_with_index do |question, i| %>
+  <div style="margin-top: 20px;">
+    <h3>問題 <%= i+1 %>: <%= question.content %></h3>
+    <ul>
+      <% question.choices.each_with_index do |choice, idx| %>
+        <li>
+          <%= choice.content %>
+          <% if question.correct_choice_id == choice.id %>
+            <strong>（正解）</strong>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= link_to "編集", edit_quiz_set_question_path(@quiz_set, question) %> ｜ <%= button_to "削除", quiz_set_question_path(@quiz_set, question), method: :delete, data: { confirm: "本当に削除しますか？" } ,class: "neon-button"%>
+
+    
+    
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<%# <h1>Users#show</h1> %>
+<%# <p>Find me in app/views/users/show.html.erb</p> %>
+
+<h1>マイページ</h1>
+
+<p><strong>メールアドレス:</strong> <%= @user.email_address %></p>
+<p><strong>アカウント作成日:</strong> <%= @user.created_at.strftime("%Y年%m月%d日 %H:%M") %></p>
+
+<h2 class="plant-title">Grow Your Plant!</h2>
+<p class="plant-description">正解数が増えるほど植物が元気になるかも？</p>
+
+<p>現在の累計正解数: <%= count = @user.correct_answers_count || 0 %></p>
+
+<% next_stage_thresholds = [2, 4, 6, 8, 10] %>
+<% next_threshold = next_stage_thresholds.find { |n| count < n } %>
+
+<% if next_threshold %>
+  <p>次の成長まであと <%= next_threshold - count %> 問！</p>
+<% else %>
+  <p>あなたの植物は大きく成長しました！</p>
+<% end %>
+
+<div class="plant-container">
+  <div class="plant-stage">
+    <% if count < 2 %>
+      <%= image_tag "1.png", alt: "発芽", class: "plant-image" %>
+    <% elsif count < 4 %>
+      <%= image_tag "2.png", alt: "わかば", class: "plant-image" %>
+    <% elsif count < 6 %>
+      <%= image_tag "3.png", alt: "双葉", class: "plant-image" %>
+    <% elsif count < 8 %>
+      <%= image_tag "4.png", alt: "つぼみ", class: "plant-image" %>
+    <% elsif count < 10 %>
+      <%= image_tag "5.png", alt: "小さなお花", class: "plant-image" %>
+    <% else %>
+      <%= image_tag "6.png", alt: "大きなお花", class: "plant-image" %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%= link_to "トップに戻る", root_path ,class: "neon-button back-btn"%>

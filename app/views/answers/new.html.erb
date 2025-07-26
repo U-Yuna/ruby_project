@@ -1,0 +1,20 @@
+<h1><%= @quiz_set.title %> に挑戦！</h1>
+
+<%= form_with url: submit_quiz_set_path(@quiz_set), method: :post, local: true, data: { turbo: false } do |f| %>
+
+<% @questions.each_with_index do |question, i| %>
+    <div>
+      <p><strong>Q<%= i + 1 %>: <%= question.content %></strong></p>
+      <% question.choices.each do |choice| %>
+        <label>
+          <%= radio_button_tag "answers[#{question.id}]", choice.id %>
+          <%= choice.content %>
+        </label><br>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.submit "解答する" %>
+<% end %>
+
+<%= link_to "戻る", solve_list_path ,class: "neon-button back-btn"%>
